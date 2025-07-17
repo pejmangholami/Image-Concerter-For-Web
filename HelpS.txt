@@ -1,0 +1,104 @@
+pip install pillow
+pip install pillow-heif
+
+
+V1:
+_________________________________________
+ویژگی‌های مهم برنامه:
+
+تبدیل به AVIF: همه تصاویر رو با بهترین کیفیت به فرمت AVIF تبدیل می‌کنه
+حذف EXIF: تمام اطلاعات EXIF رو پاک می‌کنه
+بهینه‌سازی برای وب: اندازه تصاویر رو محدود می‌کنه و بهینه می‌کنه
+SEO-friendly: نام فایل‌ها رو به حالت SEO-friendly تبدیل می‌کنه
+حفظ ساختار: ساختار فولدرها رو دقیقاً کپی می‌کنه
+آمار کامل: کاهش حجم و اطلاعات دیگه رو نشون می‌ده
+Thumbnail: امکان ایجاد thumbnail با اندازه‌های مختلف
+
+
+تنظیمات مهم برای SEO:
+
+seo_friendly_names: نام‌های فایل SEO-friendly
+max_width/max_height: کنترل اندازه برای سرعت بارگذاری
+quality: تعادل بین کیفیت و حجم
+remove_exif: حذف اطلاعات غیرضروری
+
+برنامه خیلی سریع و بهینه کار می‌کنه و برای وبسایت‌ها عالیه!
+
+اول AVIF رو امتحان می‌کنه
+اگه نشد WebP رو امتحان می‌کنه (که تقریباً همون کارایی رو داره)
+در نهایت JPEG رو استفاده می‌کنه
+
+
+# استفاده ساده
+python image_converter.py "source_folder" "output_folder"
+
+# با تنظیمات سفارشی
+python image_converter.py "source_folder" "output_folder" --quality 90 --max-width 1600 --thumbnails
+
+
+
+
+
+V2:
+_________________________________________________________
+ویژگی‌های اضافه شده:
+
+پارامترهای EXIF اضافی:
+
+--comment: کامنت تصویر
+--subject: موضوع تصویر
+--make: شرکت سازنده دوربین
+--model: مدل دوربین
+
+
+تنظیمات اضافی:
+
+--no-exif: حذف کامل اطلاعات EXIF
+--no-seo: عدم استفاده از نام‌های SEO-friendly
+--no-transparency: عدم حفظ شفافیت
+--no-progressive: عدم استفاده از بارگذاری تدریجی
+--lossless: فشرده‌سازی بدون افت کیفیت
+--webp-lossless: WebP بدون افت کیفیت
+--method: روش فشرده‌سازی (0-6)
+--webp-method: روش فشرده‌سازی WebP (0-6)
+--thumb-sizes: اندازه‌های thumbnail قابل تنظیم
+
+
+بررسی صحت ورودی‌ها:
+
+بررسی محدوده کیفیت (1-100)
+بررسی مثبت بودن ابعاد
+بررسی صحت روش فشرده‌سازی
+
+
+مدیریت خطا:
+
+مدیریت KeyboardInterrupt برای توقف دستی
+مدیریت خطاهای عمومی با نمایش traceback
+پیام‌های خطای واضح
+
+
+نمایش اطلاعات:
+
+نمایش زیبا از اطلاعات شروع
+نمایش فرمت خروجی تشخیص داده شده
+پیام‌های وضعیت با emoji
+
+
+ذخیره و بارگذاری تنظیمات:
+
+قابلیت بارگذاری تنظیمات از فایل JSON
+قابلیت ذخیره تنظیمات فعلی
+
+
+
+نحوه استفاده:
+# استفاده ساده
+python image_converter_v2.py /path/to/source_folder /path/to/output_folder
+
+
+# با تنظیمات پیشرفته
+python image_converter_v2.py /path/to/source_folder /path/to/output_folder --webp-dir /path/to/webp --quality 90 --thumbnails --artist "نام شما" --website "example.com"
+
+# با فایل تنظیمات
+python image_converter_v2.py /path/to/source_folder /path/to/output_folder --config config.json --save-config new_config.json
