@@ -36,7 +36,7 @@
 ### نصب کتابخانه‌های مورد نیاز
 
 ```bash
-pip install Pillow pillow-heif
+pip install Pillow=11.3 pillow-heif
 ```
 
 ### پیش‌نیازهای اضافی برای AVIF
